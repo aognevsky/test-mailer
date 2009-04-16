@@ -445,3 +445,12 @@ Rendering template within layouts/application
 Rendering home/index
 Rendered users/_user_bar (0.6ms)
 Completed in 3ms (View: 2, DB: 0) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-04-16 16:30:30) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Rendered users/_user_bar (50.3ms)
+Completed in 63ms (View: 61, DB: 0) | 200 OK [http://localhost/]

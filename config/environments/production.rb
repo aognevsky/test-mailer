@@ -27,16 +27,12 @@ config.action_view.cache_template_loading            = true
 # Enable threaded mode
 # config.threadsafe!
 # Don't care if the mailer can't send
-config.action_mailer.raise_delivery_errors = true
 
-# set delivery method to :smtp, :sendmail or :test
-config.action_mailer.delivery_method = :smtp
-
-config.action_mailer.smtp_settings = {
-  :address        => 'localhost',
-  :port           => 25,
-  :domain         => 'dressinfun.com',
-  :authentication => :plain,
-  :user_name      => '',
-  :password       => ''
-}
+ActionMailer::Base.delivery_method = :sendmail 
+ActionMailer::Base.sendmail_settings =	{  
+																					:location => '/usr/sbin/sendmail',
+																					:arguments => '-i -t' 
+																				} 
+ActionMailer::Base.perform_deliveries = true 
+ActionMailer::Base.raise_delivery_errors = true 
+ActionMailer::Base.default_charset = "UTF-8" 
