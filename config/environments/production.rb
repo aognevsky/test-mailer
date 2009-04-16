@@ -28,11 +28,19 @@ config.action_view.cache_template_loading            = true
 # config.threadsafe!
 # Don't care if the mailer can't send
 
-ActionMailer::Base.delivery_method = :sendmail 
-ActionMailer::Base.sendmail_settings =	{  
-																					:location => '/usr/sbin/sendmail',
-																					:arguments => '-i -t' 
-																				} 
-ActionMailer::Base.perform_deliveries = true 
-ActionMailer::Base.raise_delivery_errors = true 
-ActionMailer::Base.default_charset = "UTF-8" 
+ActionMailer::Base.delivery_method = :sendmail
+ActionMailer::Base.sendmail_settings = {
+  :location       => '/usr/sbin/sendmail',
+  :arguments      => '-i -t'
+
+}
+
+#ActionMailer::Base.template_root = "mailer/templates"
+  # mailer will look for rhtml templates in that path
+  # example: "mailer/templates/my_mailer/signup_mail.rhtml"
+ActionMailer::Base.perform_deliveries = true # the "deliver_*" methods are available
+ActionMailer::Base.raise_delivery_errors = true
+ActionMailer::Base.default_charset = "utf-8"
+ActionMailer::Base.default_content_type = "text/html" # default: "text/plain"
+ActionMailer::Base.default_mime_version = "1.0"
+ActionMailer::Base.default_implicit_parts_order = [ "text/html", "text/plain"]
