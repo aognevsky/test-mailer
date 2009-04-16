@@ -6,9 +6,7 @@ RAILS_GEM_VERSION = '2.3.2' unless defined? RAILS_GEM_VERSION
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 
-ActionMailer::Base.delivery_method = :sendmail
-#ActionMailer::Base.perform_deliveries = true
-ActionMailer::Base.raise_delivery_errors = true
+
 
 Rails::Initializer.run do |config|
 	
@@ -44,3 +42,6 @@ Rails::Initializer.run do |config|
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
 end
+
+ActionMailer::Base.delivery_method = :sendmail
+ActionMailer::Base.raise_delivery_errors = true
